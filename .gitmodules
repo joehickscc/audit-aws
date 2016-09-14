@@ -1,0 +1,21 @@
+[submodule "stack-audit-aws-cloudtrail/extends"]
+	path = stack-audit-aws-cloudtrail/extends
+	url = git@github.com:CloudCoreo/audit-aws-cloudtrail.git
+[submodule "stack-audit-aws-ec2/extends"]
+	path = stack-audit-aws-ec2/extends
+	url = git@github.com:CloudCoreo/audit-aws-ec2.git
+[submodule "stack-audit-aws-elb/extends"]
+	path = stack-audit-aws-elb/extends
+	url = git@github.com:CloudCoreo/audit-aws-elb.git
+[submodule "stack-audit-aws-iam/extends"]
+	path = stack-audit-aws-iam/extends
+	url = git@github.com:CloudCoreo/audit-aws-iam.git
+[submodule "stack-audit-aws-rds/extends"]
+	path = stack-audit-aws-rds/extends
+	url = git@github.com:CloudCoreo/audit-aws-rds.git
+[submodule "stack-audit-aws-redshift/extends"]
+	path = stack-audit-aws-redshift/extends
+	url = git@github.com:CloudCoreo/audit-aws-redshift.git
+[submodule "stack-audit-aws-s3/extends"]
+	path = stack-audit-aws-s3/extends
+	url = git@github.com:CloudCoreo/audit-aws-s3.git

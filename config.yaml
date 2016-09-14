@@ -1,0 +1,158 @@
+variables:
+    AUDIT_AWS_ALERT_RECIPIENT:
+        overrides:
+            - AUDIT_AWS_CLOUDTRAIL_ALERT_RECIPIENT
+            - AUDIT_AWS_EC2_ALERT_RECIPIENT
+            - AUDIT_AWS_ELB_ALERT_RECIPIENT
+            - AUDIT_AWS_REDSHIFT_ALERT_RECIPIENT
+            - AUDIT_AWS_RDS_ALERT_RECIPIENT
+            - AUDIT_AWS_IAM_ALERT_RECIPIENT
+            - AUDIT_AWS_S3_ALERT_RECIPIENT
+        description: email recipient for notification
+        required: true
+        type: string
+        default: null
+    AUDIT_AWS_ALLOW_EMPTY:
+        overrides:
+            - AUDIT_AWS_CLOUDTRAIL_ALLOW_EMPTY
+            - AUDIT_AWS_EC2_ALLOW_EMPTY
+            - AUDIT_AWS_ELB_ALLOW_EMPTY
+            - AUDIT_AWS_REDSHIFT_ALLOW_EMPTY
+            - AUDIT_AWS_RDS_ALLOW_EMPTY
+            - AUDIT_AWS_IAM_ALLOW_EMPTY
+            - AUDIT_AWS_S3_ALLOW_EMPTY
+        description: receive empty reports?
+        required: true
+        type: boolean
+        default: false
+    AUDIT_AWS_SEND_ON:
+        overrides:
+            - AUDIT_AWS_CLOUDTRAIL_SEND_ON
+            - AUDIT_AWS_EC2_SEND_ON
+            - AUDIT_AWS_ELB_SEND_ON
+            - AUDIT_AWS_REDSHIFT_SEND_ON
+            - AUDIT_AWS_RDS_SEND_ON
+            - AUDIT_AWS_IAM_SEND_ON
+            - AUDIT_AWS_S3_SEND_ON_ON
+        description: always or change
+        required: true
+        type: string
+        default: change
+    AUDIT_AWS_PAYLOAD_TYPE:
+        overrides:
+            - AUDIT_AWS_CLOUDTRAIL_PAYLOAD_TYPE
+            - AUDIT_AWS_EC2_PAYLOAD_TYPE
+            - AUDIT_AWS_ELB_PAYLOAD_TYPE
+            - AUDIT_AWS_REDSHIFT_PAYLOAD_TYPE
+            - AUDIT_AWS_RDS_PAYLOAD_TYPE
+            - AUDIT_AWS_IAM_PAYLOAD_TYPE
+            - AUDIT_AWS_S3_PAYLOAD_TYPE
+        description: json or text
+        required: true
+        type: string
+        default: json
+    AUDIT_AWS_CLOUDTRAIL_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - cloudtrail-service-disabled
+    AUDIT_AWS_REDSHIFT_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - redshift-publicly-accessible
+            - redshift-encrypted
+            - redshift-no-version-upgrade
+            - redshift-no-require-ssl
+            - redshift-no-user-logging
+    AUDIT_AWS_RDS_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - rds-short-backup-retention-period
+    AUDIT_AWS_IAM_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - iam-unusediamgroup
+            - iam-inactive-key-no-rotation
+            - iam-active-key-no-rotation
+            - iam-passwordreuseprevention
+            - iam-missing-password-policy
+            - iam-expirepasswords
+            - iam-no-mfa
+            - iam-root-no-mfa
+            - iam-root-active-key
+            - iam-root-active-password
+            - iam-user-attached-policies
+    AUDIT_AWS_ELB_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - elb-old-ssl-policy
+    AUDIT_AWS_EC2_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - ec2-ip-address-whitelisted
+            - ec2-unrestricted-traffic
+            - ec2-TCP-1521-0.0.0.0/0
+            - ec2-TCP-3306-0.0.0.0/0
+            - ec2-TCP-5432-0.0.0.0/0
+            - ec2-TCP-27017-0.0.0.0/0
+            - ec2-TCP-1433-0.0.0.0/0
+            - ec2-TCP-3389-0.0.0.0/0
+            - ec2-TCP-22-0.0.0.0/0
+            - ec2-TCP-5439-0.0.0.0/0
+            - ec2-TCP-23
+            - ec2-TCP-21
+            - ec2-TCP-20
+            - ec2-ports-range
+    AUDIT_AWS_S3_ALERT_LIST:
+        description: alert list for generating notifications
+        required: true
+        type: array
+        default:
+            - s3-allusers-write
+            - s3-allusers-write-acp
+            - s3-allusers-read
+            - s3-authenticatedusers-write
+            - s3-authenticatedusers-write-acp
+            - s3-authenticatedusers-read
+            - s3-logging-disabled
+            - s3-world-open-policy-delete
+            - s3-world-open-policy-get
+            - s3-world-open-policy-list
+            - s3-world-open-policy-put
+            - s3-world-open-policy-all
+            - s3-only-ip-based-policy
+    AUDIT_AWS_REGIONS:
+        overrides:
+            - AUDIT_AWS_CLOUDTRAIL_REGIONS
+            - AUDIT_AWS_EC2_REGIONS
+            - AUDIT_AWS_ELB_REGIONS
+            - AUDIT_AWS_REDSHIFT_REGIONS
+            - AUDIT_AWS_RDS_REGIONS
+            - AUDIT_AWS_IAM_REGIONS
+            - AUDIT_AWS_S3_REGIONS
+        description: list of AWS regions to check. Default is all regions
+        required: true
+        type: array
+        default:
+            - us-east-1
+            - us-west-1
+            - us-west-2
+#            - ap-south-1
+#            - ap-northeast-1
+#            - ap-northeast-2
+#            - ap-southeast-1
+#            - ap-southeast-2
+#            - eu-central-1
+#            - eu-west-1
+#            - sa-east-1
