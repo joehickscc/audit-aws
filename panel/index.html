@@ -1,0 +1,127 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/font-awesome.min.css">
+
+    </head>
+    <body>
+        <div id="backdrop">
+              Loading...
+        </div>
+        <div class="content flex-row align-start layout-padding">
+            <div class="flex-column left-column layout-padding-right">
+                <div class="flex-row layout-margin-bottom-8">
+                    <div class="button active" type="data-lists"><i class="fa fa-list" aria-hidden="true"></i> LIST</div>
+                    <div class="button" type="map"><i class="fa fa-map" aria-hidden="true"></i> MAP</div>
+                </div>
+
+                <div class="separator-top layout-margin-bottom-8">
+                    <div class="dropdown flex-row align-center">
+                        <div class="separator-right medium-grey layout-padding-8">SORT BY</div>
+                        <div id="sort-value">Severity Level</div>
+                        <ul id="sort-by-select" class="hidden">
+                            <li value="severity" selected><span>Severity Level</span></li>
+                            <li value="category"><span>Category</span></li>
+                            <li value="service"><span>Service</span></li>
+                            <li value="region"><span>Region</span></li>
+                        </ul>
+                        <i class="fa-caret-down fa"></i>
+                    </div>
+                </div>
+                <div class="layout-margin-top pie-severity severity object"></div>
+                <div class="layout-margin-top pie-category category object hidden"></div>
+                <div class="layout-margin-top pie-service service object hidden"></div>
+                <div class="layout-margin-top pie-region region object hidden"></div>
+            </div>
+            <div class="content-data flex-column layout-padding bg-white md-shadow flex-grow">
+                <div class="data-lists data-block ">
+                    <div class="list-severity severity object"></div>
+                    <div class="list-category category object hidden"></div>
+                    <div class="list-service service object hidden"></div>
+                    <div class="list-region region object hidden"></div>
+                </div>
+                <div class="map data-block hidden">
+                    <div class="map-cont">
+                    </div>
+                    <div class="layout-margin-top separator-top map-history">
+                        <div class="flex-row severity object"></div>
+                        <div class="flex-row category object"></div>
+                        <div class="flex-row service object"></div>
+                        <div class="flex-row region object"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="list-header-tmpl" class="hidden">
+            <div class="flex-row align-center">
+                <div class="subheader flex-grow">{{:name}}</div>
+                <div id="high-counter" class="font-12 medium-grey">{{:resultsCount}} RESULTS</div>
+            </div>
+        </div>
+
+        <div id="show-all-btn-tmpl" class="hidden">
+            <div class="show-all">
+                View all
+            </div>
+        </div>
+
+        <div id="row-tmpl"  class="hidden">
+            <div class="flex-column row">
+                <div class="flex-row row-header">
+                    <div class="flex-column flex-grow layout-padding">
+                        <div class="title">{{:title}}</div>
+                        <div>AlertId: {{:id}}</div>
+                        <div class="details-btn link">+ view details</div>
+                    </div>
+                    <div class="medium-grey layout-padding">{{:level}}</div>
+                    <div class="medium-grey row-right-column layout-padding">{{:resources}} Resources</div>
+                </div>
+                <div class="row-body hidden" style="display: none;">
+                    <div class="flex-row separator-top">
+                        <div class="flex-column separator-right flex-grow">
+                            <div class="layout-padding">
+                                <div class="layout-margin-bottom-8">
+                                    <i>Category</i><br/>
+                                    {{:category}}
+                                </div>
+                                <div>
+                                    <i>Description</i><br/>
+                                    {{:description}}
+                                </div>
+                            </div>
+                            <div class="bg-light-grey layout-padding">
+                                <i>Suggested Fix</i><br/>
+                                {{:fix}}
+                            </div>
+                        </div>
+                        <div class="flex-column row-right-column layout-padding">
+                            <div class="link">
+                                {{:resources}} Resources
+                                <i class="fa fa-angle-right right" aria-hidden="true"></i>
+                            </div>
+                            <div class="link">
+                                more info
+                                <i class="fa fa-angle-right right" aria-hidden="true"></i>
+                            </div>
+                            <div class="separator-top layout-margin-top-8 layout-margin-bottom-8"></div>
+                            <div class="link">
+                                <i class="fa fa-envelope left" aria-hidden="true"></i>
+                                share
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="./js/jquery-2.2.4.js"></script>
+        <script type="text/javascript" src="./js/jquery.tmpl.js"></script>
+        <script type="text/javascript" src="./js/jsrender.min.js"></script>
+        <script src="https://d3js.org/d3.v4.min.js"></script>
+        <!--<script type="text/javascript" src="./js/pie.js"></script>-->
+        <!--<script type="text/javascript" src="./js/map.js"></script>-->
+        <script type="text/javascript" src="./js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,3892 @@
+{
+  "stack name": "audit-full",
+  "instance name": "cc-hack",
+  "services": {
+    "cloudtrail": {
+      "cloudtrail_checks": "3",
+      "cloudtrail_violations": "0",
+      "cloudtrail_violations_ignored": "0",
+      "violations": {
+      }
+    },
+    "ec2": {
+      "ec2_checks": "29050",
+      "ec2_violations": "20",
+      "ec2_violations_ignored": "0",
+      "violations": {
+        "sg-036e0c79": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "ec2-TCP-3306-0.0.0.0/0": {
+              "description": "Important TCP port is open and/or open to the world.",
+              "category": "Security",
+              "suggested_action": "Only open those ports that must be open for your service to operate. Consider deleting or modifying the affected security group.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-036e0c79",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "rds-my-test"
+            },
+            {
+              "resource_id": "sg-036e0c79",
+              "resource_type": "security-group",
+              "key": "test",
+              "value": "rds"
+            },
+            {
+              "resource_id": "sg-036e0c79",
+              "resource_type": "security-group",
+              "key": "working",
+              "value": "notyet"
+            }
+          ]
+        },
+        "sg-54a7362e": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-54a7362e",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "op-NAT-sg"
+            }
+          ]
+        },
+        "sg-883453f2": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "ec2-TCP-22-0.0.0.0/0": {
+              "description": "Important TCP port is open and/or open to the world.",
+              "category": "Security",
+              "suggested_action": "Only open those ports that must be open for your service to operate. Consider deleting or modifying the affected security group.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-883453f2",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "my-instance-sg"
+            },
+            {
+              "resource_id": "sg-883453f2",
+              "resource_type": "security-group",
+              "key": "test",
+              "value": "ec2"
+            },
+            {
+              "resource_id": "sg-883453f2",
+              "resource_type": "security-group",
+              "key": "working",
+              "value": "maybe"
+            }
+          ]
+        },
+        "sg-8cd6b0f6": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-8cd6b0f6",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "dmvpn-elb-sg"
+            }
+          ]
+        },
+        "sg-a7992fdd": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-a7992fdd",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "vpn-dev-elb-sg"
+            }
+          ]
+        },
+        "sg-b9992fc3": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-b9992fc3",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "dev-elb-sg"
+            }
+          ]
+        },
+        "sg-d2992fa8": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-d2992fa8",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "NAT-sg"
+            }
+          ]
+        },
+        "sg-f4a7368e": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-f4a7368e",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "op-vpn-elb-sg"
+            }
+          ]
+        },
+        "sg-7186300b": {
+          "violations": {
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-7186300b",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "devkube"
+            }
+          ]
+        },
+        "sg-af8036d5": {
+          "violations": {
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-af8036d5",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "mongodb"
+            }
+          ]
+        },
+        "sg-fc46bb85": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-west-2"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-fc46bb85",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "dmvpn-elb-sg"
+            }
+          ]
+        },
+        "sg-6a46bb13": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-west-2"
+            },
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-west-2"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-6a46bb13",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "NAT-sg"
+            }
+          ]
+        },
+        "sg-21db2758": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-west-2"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-21db2758",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "dmvpn2-elb-sg"
+            }
+          ]
+        },
+        "sg-6bdb2712": {
+          "violations": {
+            "ec2-unrestricted-traffic": {
+              "description": "All IP addresses are allowed to access resources in a specific security group.",
+              "category": "Security",
+              "suggested_action": "Restrict access to the minimum specific set of IP address or ports necessary.",
+              "level": "Warning",
+              "region": "us-west-2"
+            },
+            "ec2-ports-range": {
+              "description": "Security group specifies a port range rather than individual ports.",
+              "category": "Security",
+              "suggested_action": "Only add rules to your Security group that specify individual ports and don't use port ranges unless they are required.",
+              "level": "Warning",
+              "region": "us-west-2"
+            }
+          },
+          "tags": [
+            {
+              "resource_id": "sg-6bdb2712",
+              "resource_type": "security-group",
+              "key": "Name",
+              "value": "NAT-sg"
+            }
+          ]
+        }
+      }
+    },
+    "elb": {
+      "elb_checks": "2",
+      "elb_violations": "2",
+      "elb_violations_ignored": "0",
+      "violations": {
+        "cc-57963011d13-dev-elb": {
+          "violations": {
+            "elb-old-ssl-policy": {
+              "description": "Elastic Load Balancing (ELB) SSL policy is not the latest Amazon predefined SSL policy or is a custom ELB SSL policy.",
+              "category": "Security",
+              "suggested_action": "Always use the current AWS predefined security policy.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "value": "dev-elb",
+              "key": "Name"
+            }
+          ]
+        },
+        "fail": {
+          "violations": {
+            "elb-old-ssl-policy": {
+              "description": "Elastic Load Balancing (ELB) SSL policy is not the latest Amazon predefined SSL policy or is a custom ELB SSL policy.",
+              "category": "Security",
+              "suggested_action": "Always use the current AWS predefined security policy.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "value": "isworkingelb",
+              "key": "unittestelb"
+            }
+          ]
+        }
+      }
+    },
+    "iam": {
+      "iam_checks": "1543",
+      "iam_violations": "276",
+      "iam_violations_ignored": "0",
+      "violations": {
+        "unusedgrouptest": {
+          "violations": {
+            "iam-unusediamgroup": {
+              "description": "There is an IAM group defined without any users in it and therefore unused.",
+              "category": "Access",
+              "suggested_action": "Ensure that groups defined within IAM have active users in them. If the groups don't have active users or are not being used, delete the unused IAM group.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "david": {
+          "violations": {
+            "iam-active-key-no-rotation": {
+              "description": "User has active keys that have not been rotated in the last 90 days",
+              "category": "Access",
+              "suggested_action": "If you regularly use the AWS access keys, we recommend that you also regularly rotate or delete them.",
+              "level": "Alert",
+              "region": "us-east-1"
+            },
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "andrew": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "caryn": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5784b5661ac97464162e1633": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578572fe73cf037547161ee2": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788693503e0121412c1f40d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578869a503e0121412c1f411": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57886b6a03e0121412c1f415": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57886bbf03e0121412c1f419": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57886c2e03e0121412c1f41d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57886ca603e0121412c1f421": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788787d03e0121412c1f427": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578879f903e0121412c1f42b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57888a7403e0121412c1f42f": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788905203e0121412c1f433": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788937e03e0121412c1f43b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788953e03e0121412c1f444": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57889f4803e0121412c1f460": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788a01403e0121412c1f464": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788a08803e0121412c1f468": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788a22b03e0121412c1f46c": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788a30b03e0121412c1f470": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788a99c03e0121412c1f474": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788ac5503e0121412c1f478": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788ad4e03e0121412c1f47c": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788ae7703e0121412c1f480": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788cc8203e0121412c1f491": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788cccf03e0121412c1f495": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788cd5903e0121412c1f499": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5788ce2303e0121412c1f49d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578c9ad5e410758a62c054bc": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578c9c2ae410758a62c054c0": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578c9d18e410758a62c054c4": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578c9d8de410758a62c054c8": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578c9e58e410758a62c054cc": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ca16de410758a62c054d0": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ca759e410758a62c054d4": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ca929e410758a62c054d8": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cab9ae410758a62c054dd": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cae04e410758a62c054e1": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cae86e410758a62c054e5": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578caf3ce410758a62c054e9": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cafd6e410758a62c054ed": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cb08fe410758a62c054f1": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cb21ee410758a62c054f5": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cb238e410758a62c054f7": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cc5da223ad9b57c84bd7f": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578cc91da25a169327e112d6": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578d9c648ddb43d919e04372": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578d9d428ddb43d919e04377": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578d9ee08b50a7fb1ee2ed7f": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578d9f82c20b481721ac46b9": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da024c20b481721ac46be": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da099c20b481721ac46c3": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da136c20b481721ac46c8": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da228c20b481721ac46cf": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da2cc3fa8b37e2b9a5b5d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da34e3fa8b37e2b9a5b62": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da44e3fa8b37e2b9a5b67": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da7dbc378cd8336e2c198": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578da941234002da385a7d5d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ddf27c378cd8336e2c1dc": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578de66e5890569e3ecd196c": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578de6d561dfff5d3f2101d6": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578de6d561dfff5d3f2101d8": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578de72ea8df3106400e14cd": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578de72ea8df3106400e14cf": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578dea287bca2c446c418193": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578deffa25bb8c0a4d102a9d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578e00123b636b90101b6a0e": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578e0aacf625faaf17d29b12": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578e0ab5f625faaf17d29b14": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578e0af0dea70ec218af2032": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578e0bc18279165a1959367b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578eefd178fc60aa1c1b262e": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef4b644fb9740298b16df": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef73ed4b229462dbf03a9": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef7975dd788362e9e2e3b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef80ee9f8397a2fcc4c86": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef87ad61dca6830fe9623": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef8a83eb9d221311520ee": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef8c3315477683155541b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef92adcd0eea132e84fd9": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578ef9cab603076834f2e8ef": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578efa203d3cdd7e35f643d6": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578efa6b29d4dd9536c839ef": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578efab9ad8592ce3767ea6b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578efc21229e33d83a62b130": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578f47ede901d0f47dc54212": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578f6932fcc2617e5e0e1437": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-578feaccd04a03d9c1a89a17": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57904d7bcdc387702adeaa39": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579054c100f46fa64ec96c73": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579054fd00f46fa64ec96c77": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5790a00e3c5920207257270a": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5791dd3235b4cb5d63ea3663": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5792161b823b56963b0b9ee6": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57921b30177ffd3e46013f9e": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579432ce01ee424d4beea702": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5795994ab6ca95c9234f1b36": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5795c2503719461b378ca083": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5795e98df223d80b3aa7ce50": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5795e9b8eb9db8403b31b388": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5795f136cf7a4d934874d09d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57969e245e1806df98f4803f": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5796a1225e1806df98f48041": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5796a1695e1806df98f48045": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579747a3c486dc970716a34a": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57974de252a5bc4269a3d280": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5798375ea957d2441f44580b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57986e531f28ab6563ee77d0": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57998f478cb025fb26cd5f82": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579991598cb025fb26cd5f84": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-57999dfe2c238f666dd9653d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5799ceb14e8b77635c16cd97": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5799d60204768a6f63d67b47": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-5799d881990c29bb105f2c7d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579b11e4069f664d25ac693b": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579b2614ea6f8232290db360": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579b459d6470f46e56ef2d46": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579bb86f10ac33624d3b7771": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579bbf2c10ac33624d3b7775": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579d16aee3768721a73e00da": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579d5476b01352d8bb93c4a5": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579ef347a6f0f05520a789c0": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f13dda85ca76e45fdc6c0": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f29308cabf81777ddf50d": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f29f78cabf81777ddf512": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f2ed5fffe80d40345f017": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f3b5af2c2b62a53d65254": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "coreo-asi-579f79e5e2434da9da349350": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "iam-user-attached-policies": {
+              "description": "User account is using custom inline policies versus using IAM group managed policies.",
+              "category": "Access",
+              "suggested_action": "Switch all inline policies to apply to IAM groups and assign users IAMs roles.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "daniel": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "dev-engine": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "dhansen": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "Dmitrii": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "docker-registry": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "emil": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "george": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "ian": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "jason": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "jenkins": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "joe": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "natalia": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "nursultan": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "pallen": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "roman": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "slava": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "webapp_mattes": {
+          "violations": {
+            "iam-no-mfa": {
+              "description": "Cloud user does not have Multi-Factor Authentication enabled on their cloud account.",
+              "category": "Security",
+              "suggested_action": "Enable Multi-Factor Authentication for every cloud user.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "<root_account>": {
+          "violations": {
+            "iam-root-active-password": {
+              "description": "The root user has been logging in using a password.",
+              "category": "Security",
+              "suggested_action": "Re-set your root account password, don't log in to your root account, and secure root account password in a safe place.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "": {
+          "violations": {
+            "iam-root-active-password": {
+              "description": "The root user has been logging in using a password.",
+              "category": "Security",
+              "suggested_action": "Re-set your root account password, don't log in to your root account, and secure root account password in a safe place.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        }
+      }
+    },
+    "rds": {
+      "rds_checks": "2",
+      "rds_violations": "2",
+      "rds_violations_ignored": "0",
+      "violations": {
+        "cc-52b4682e6b9-rdsmytest": {
+          "violations": {
+            "rds-short-backup-retention-period": {
+              "description": "The affected RDS database has a short backup retention period (less than 30 days).",
+              "category": "Dataloss",
+              "suggested_action": "Modify the backup retension period to increase it to greater than 30 days.",
+              "level": "Alert",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cc-57980ce2d13-kubedev": {
+          "violations": {
+            "rds-short-backup-retention-period": {
+              "description": "The affected RDS database has a short backup retention period (less than 30 days).",
+              "category": "Dataloss",
+              "suggested_action": "Modify the backup retension period to increase it to greater than 30 days.",
+              "level": "Alert",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+            {
+              "value": "kubedev",
+              "key": "Name"
+            }
+          ]
+        }
+      }
+    },
+    "redshift": {
+      "redshift_checks": "80",
+      "redshift_violations": "2",
+      "redshift_violations_ignored": "0",
+      "violations": {
+        "": {
+          "violations": {
+            "redshift-no-require-ssl": {
+              "description": "Connections to Redshift aren't set to require the use of SSL encryption.",
+              "category": "Security",
+              "suggested_action": "Enable Redshift to require the use of SSL encrypted connections.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "redshift-no-user-logging": {
+              "description": "Redshift user activity logging is disabled.",
+              "category": "Audit",
+              "suggested_action": "Enable Redshift user activity logging.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": null
+        }
+      }
+    },
+    "s3": {
+      "s3_checks": "2253",
+      "s3_violations": "40",
+      "s3_violations_ignored": "0",
+      "violations": {
+        "cc-dev-unittests": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "whats": "up",
+            "paul": "allen",
+            "Name": "cc-dev-unittests"
+          }
+        },
+        "cc-fail-bucket": {
+          "violations": {
+            "s3-allusers-write": {
+              "description": "Bucket has permissions (ACL) which let all users write to the bucket.",
+              "category": "Dataloss",
+              "suggested_action": "Remove the entry from the bucket permissions that allows everyone to write.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "s3-allusers-write-acp": {
+              "description": "Bucket has permissions (ACP / ACL) which let all users modify the permissions.",
+              "category": "Dataloss",
+              "suggested_action": "Remove the entry from the bucket permissions that allows everyone to edit permissions.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            },
+            "s3-allusers-read": {
+              "description": "Bucket has permissions (ACL) which let anyone list the bucket contents.",
+              "category": "Security",
+              "suggested_action": "Remove the entry from the bucket permissions that allows everyone to list the bucket.",
+              "level": "Alert",
+              "region": "us-east-1"
+            },
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "addings3": "tagstotest"
+          }
+        },
+        "cf-templates-vuxp8eu6slr7-us-west-2": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcore-dev-files": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-aa-backups": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-aa-backups"
+          }
+        },
+        "cloudcoreo-aa-vpn-keys": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-aa-vpn-keys"
+          }
+        },
+        "cloudcoreo-backups-a": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-backups-a"
+          }
+        },
+        "cloudcoreo-custom-dashboards-dev": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-customer-files": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-dev-backups": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-dev-backups"
+          }
+        },
+        "cloudcoreo-dev-containers": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-devfiles2": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-dm-backups": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-dm-backups"
+          }
+        },
+        "cloudcoreo-dm-vpn-keys": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-dm-vpn-keys"
+          }
+        },
+        "cloudcoreo-hack-cloudtrail": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-get": {
+              "description": "Bucket policy allows the world to get the contents of the affected bucket.",
+              "category": "Security",
+              "suggested_action": "Remove or modify the bucket policy that enables the world to get the contents of this bucket.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-put": {
+              "description": "Bucket policy allows the world to put data into the affected bucket.",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to put (and overwrite) data in this bucket.",
+              "level": "danger",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "cloudcoreo-opcito": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-opcito"
+          }
+        },
+        "cloudcoreo-opcito-bucket": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-opcito-bucket"
+          }
+        },
+        "cloudcoreo-opcito-mongo": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Name": "cloudcoreo-opcito-mongo"
+          }
+        },
+        "cloudcoreo-yum-dev": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-get": {
+              "description": "Bucket policy allows the world to get the contents of the affected bucket.",
+              "category": "Security",
+              "suggested_action": "Remove or modify the bucket policy that enables the world to get the contents of this bucket.",
+              "level": "Critical",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-list": {
+              "description": "Bucket policy allows the world to list the contents of the affected bucket",
+              "category": "Security",
+              "suggested_action": "Remove or modify the bucket policy that enables the world to list the contents of this bucket.",
+              "level": "danger",
+              "region": "us-east-1"
+            },
+            "s3-only-ip-based-policy": {
+              "description": "Bucket policy grants permissions to any user at an IP address or range to perform operations on objects in the specified bucket.",
+              "category": "Security",
+              "suggested_action": "Consider using other methods to grant permission to perform operations on your S3 buckets.",
+              "level": "Critical",
+              "region": "us-east-1"
+            }
+          },
+          "tags": [
+
+          ]
+        },
+        "opcito-mongo-backups-a": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            },
+            "s3-world-open-policy-all": {
+              "description": "Bucket policy allows the world to get, put, list, delete the affected bucket",
+              "category": "Dataloss",
+              "suggested_action": "Remove the bucket permission that enables the world to get, put, list, and delete the contents of this bucket.",
+              "level": "Emergency",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "Opcito": "true",
+            "Name": "opcito-mongo-backups-a"
+          }
+        },
+        "pla-366-test-bucket-1": {
+          "violations": {
+            "s3-logging-disabled": {
+              "description": "S3 bucket logging has not been enabled for the affected resource.",
+              "category": "Audit",
+              "suggested_action": "Enable logging on your S3 buckets.",
+              "level": "Warning",
+              "region": "us-east-1"
+            }
+          },
+          "tags": {
+            "whats": "up",
+            "paul": "allen",
+            "Name": "pla-366-test-bucket-1"
+          }
+        }
+      }
+    }
+  }
+}
