@@ -1,9 +1,13 @@
 $(function() {
     var alerts = [],
-        severity = {},
-        categories = {},
-        regions = {},
-        servicesList = {};
+        alertData = {
+            level: {},
+            category: {},
+            region: {},
+            service: {}
+        };
+
+    var svg;
 
     var regionsList = {
         'ap-northeast-1': {region: 'Asia Pacific', city: 'Tokyo', latitude: 35.6735763, longitude: 139.4302066, countryId: 'JPN'},
@@ -84,40 +88,35 @@ $(function() {
             })
             .style("stroke", "#fff")
             .style("stroke-width", "1px")
-            // .on("mouseover", function(d) {
-            //     console.log(d);
-            //     d3.select(this).style("stroke","#2ca02c")
-            //         .append("svg:title")
-            //         .text(d.properties.name);
-            // })
-            // .on("mouseout", function (d) {
-            //     d3.select(this).style("stroke","#ffffff");
-            // })
+            .on("mouseover", function(d) {
+                d3.select(this)
+                    .append("svg:title")
+                    .text(d.properties.name);
+            })
             .on("click", mapClicked);
 
 
-        var circles = g.append("g");
-        circles.append("g").attr("class", "map-severity severity object");
-        circles.append("g").attr("class", "map-category category object hidden");
-        circles.append("g").attr("class", "map-service  service object hidden");
-        circles.append("g").attr("class", "map-region region object hidden");
+        g.append("g").attr("id", "map-bubbles-cont");
 
         return g;
     }
 
-    function drawCirclesOnMap(g, mapData, id) {
-        var data = [];
+    function drawCirclesOnMap(g, mapData) {
+        $('g.map-bubbles-cont').html('');
+
+        var orgMapData = [];
         Object.keys(mapData).forEach(function(region) {
             Object.keys(mapData[region]).forEach(function(type) {
-                data.push({region: region, type:type, value:mapData[region][type].value, color: mapData[region][type].color});
+                orgMapData.push({region: region, type:type, value:mapData[region][type].value, color: mapData[region][type].color});
             });
         });
 
         var xy = d3.geoEquirectangular();
 
-        var circles = g.select(id).append("g").attr("class", "circles");
-        var elem = circles.selectAll('.circles').sort(function(a, b) {return a.value - b.value;}).data(data);
-        /*Create and place the "blocks" containing the circle and the text */
+        var circles = g.select('#map-bubbles-cont');
+        circles.selectAll('g').remove();
+
+        var elem = circles.selectAll('g').data(orgMapData);
         var elemEnter = elem.enter()
             .append("g")
             .attr("type", function(d) {
@@ -153,6 +152,33 @@ $(function() {
     }
 
 
+    function drawMapHistory(mapData) {
+        $('.map-history').html('');
+        var orgMapData = {};
+        Object.keys(mapData).forEach(function(region) {
+            Object.keys(mapData[region]).forEach(function(type) {
+                if(!orgMapData[type]){
+                    orgMapData[type] = {color: mapData[region][type].color, data: []};
+                }
+                orgMapData[type].data.push({region: region, type:type, value:mapData[region][type].value});
+            });
+        });
+
+        var types = Object.keys(orgMapData)
+        for(var i = 0; i < types.length; ++i) {
+            var rowsData = '';
+            for(var j = 0; j < orgMapData[types[i]].data.length; ++j){
+                rowsData += '<br/>' + orgMapData[types[i]].data[j].value + ' ' + regionsList[orgMapData[types[i]].data[j].region].city;
+            }
+
+            var html =  '<div class="flex-grow history-column">' +
+                            '<span class="history-header" style="color:'+orgMapData[types[i]].color+';">' + types[i] + '</span>' +
+                            rowsData+
+                        '</div>';
+            $('.map-history').append(html);
+        }
+    }
+
 
     function roundedRect(x, y, width, height, radius) {
         return "M" + x + "," + y
@@ -166,20 +192,22 @@ $(function() {
             + "z";
     }
 
-    function drawPie(id, data, color) {
+    function drawPie(pieData, color) {
+        $('.pie').html('');
+
         var w = 300,
             h = 300,
             r = 65;
 
         var dataSum = 0;
-        data.forEach(function (elem) {
-            dataSum += elem.value;
+        pieData.forEach(function (elem) {
+            dataSum += +elem.value;
         });
 
 
-        var vis = d3.select(id)
+        var vis = d3.select(".pie")
             .append("svg:svg")
-            .data([data])
+            .data([pieData])
             .attr("height", h)
             .append("svg:g")
             .attr("transform", "translate(" + r + "," + r + ")");
@@ -190,27 +218,27 @@ $(function() {
 
         var pie = d3.pie()
             .value(function (d) {
-                return d.value;
+                return +d.value;
             });
 
         var g = vis.selectAll(".arc")
-            .data(pie(data))
+            .data(pie(pieData))
             .enter().append("g")
             .attr("class", "arc");
 
         var onclick = function (d, i) {
-            $('html, body').animate({
-                scrollTop: $("." + data[i].label).offset().top
+            $('.content').animate({
+                scrollTop: $("." + pieData[i].label).offset().top
             }, 500);
         };
 
         g.append("svg:path")
             .attr("fill", function (d, i) {
-                return data[i].color;
+                return pieData[i].color;
             })
             .attr("d", arc)
             .style("stroke", "#fff")
-            .style("stroke-width", "0px")
+            .style("stroke-width", "3px")
             .on("click", onclick);
 
         g.append("svg:text")
@@ -222,7 +250,8 @@ $(function() {
             .style("font-family", "Arial")
             .style("font-size", "12px")
             .text(function (d, i) {
-                return data[i].value + ' ' + data[i].label + ' (' + (data[i].value * 100 / dataSum).toFixed(1) + '%)';
+                var title = pieData[i].value + ' ' + pieData[i].label + ' (' + (pieData[i].value * 100 / dataSum).toFixed(1) + '%)'
+                return title;
             })
             .on("click", onclick);
 
@@ -231,29 +260,33 @@ $(function() {
                 return roundedRect(r + 20, 10 - r + i * 35, 20, 20, 4);
             })
             .attr("fill", function (d, i) {
-                return data[i].color || color(i);
+                return pieData[i].color || color(i);
             })
             .on("click", onclick);
     }
 
-    function fillList(id, listData, svg, compareFunction) {
+    function fillList(id) {
         var headerTmpl = $.templates("#list-header-tmpl"),
             tmpl = $.templates("#row-tmpl"),
             btn = $("#show-all-btn-tmpl").html(),
             color = d3.scaleOrdinal(d3.schemeCategory20),
-            i = 0,
-            listId = '.list-' + id,
-            pieId = '.pie-' + id,
-            mapId = '.map-' + id;
+            i = 0;
+
+        var listData = alertData[id];
 
         var data = [],
             mapData = {};
 
-        var regionCodes = Object.keys(regions);
+        var compareFunction = function(key, alert) {
+            return key === alert[id];
+        };
+
+        var regionCodes = Object.keys(alertData.region);
         for (i = 0; i < regionCodes.length; ++i) {
             mapData[regionCodes[i]] = {};
         }
 
+        $('.list').html('');
         Object.keys(listData).forEach( function(key, i) {
             var headerData = {
                 name: key,
@@ -287,75 +320,12 @@ $(function() {
                             '</div>'+
                         '</div>';
 
-            $(listId).append(html);
+            $('.list').append(html);
         });
-        drawPie(pieId, data);
-        drawCirclesOnMap(svg, mapData, mapId);
-    }
+        drawPie(data);
+        drawCirclesOnMap(svg, mapData);
+        drawMapHistory(mapData);
 
-    function fillData(services, svg){
-        severity = {};
-        categories = {};
-        regions = {};
-        servicesList = {};
-
-        alerts = [];
-
-        Object.keys(services).forEach(function(key) {
-            var count = services[key][key+'_violations'];
-            if (count != 0) servicesList[key] = count;
-
-            Object.keys(services[key].violations).forEach(function(resId) {
-                Object.keys(services[key].violations[resId].violations).forEach(function (violationKey) {
-                    var rowData = services[key].violations[resId].violations[violationKey];
-                    var alert = {
-                        title: violationKey,
-                        id: violationKey,
-                        level: rowData.level,
-                        resources: (services[key].violations[resId].tags) ? services[key].violations[resId].tags.length || services[key].violations[resId].tags : 0,
-                        category: rowData.category,
-                        description: rowData.description,
-                        fix: rowData.suggested_action,
-                        resId: resId,
-                        service: key,
-                        region: rowData.region
-                    };
-                    if(!severity.hasOwnProperty(alert.level)) {
-                        severity[alert.level] = 0;
-                    }
-                    if(!categories.hasOwnProperty(alert.category)) {
-                        categories[alert.category] = 0;
-                    }
-                    if(!regions.hasOwnProperty(alert.region)) {
-                        regions[alert.region] = 0;
-                    }
-
-                    ++severity[alert.level];
-                    ++categories[alert.category];
-                    ++regions[alert.region];
-
-                    alerts.push(alert);
-                });
-            });
-        });
-
-        fillList('severity', severity, svg, function(key, alert) {
-            return key === alert.level;
-        });
-        fillList('category', categories, svg, function(key, alert) {
-            return key === alert.category;
-        });
-        fillList('service', servicesList, svg, function(key, alert) {
-            return key === alert.service;
-        });
-        fillList('region', regions, svg, function(key, alert) {
-            return key === alert.region;
-        });
-    }
-
-    function init(data, svg){
-        fillData(data.services, svg);
-        $('#backdrop').hide();
 
         $('.show-all').click(function () {
             var list = $(this).prev();
@@ -383,11 +353,59 @@ $(function() {
         });
     }
 
+    function fillData(services){
+        alerts = [];
+
+        Object.keys(services).forEach(function(key) {
+            var count = services[key][key+'_violations'];
+            if (count != 0) alertData.service[key] = count;
+
+            Object.keys(services[key].violations).forEach(function(resId) {
+                Object.keys(services[key].violations[resId].violations).forEach(function (violationKey) {
+                    var rowData = services[key].violations[resId].violations[violationKey];
+                    var alert = {
+                        title: violationKey,
+                        id: violationKey,
+                        level: rowData.level,
+                        resources: (services[key].violations[resId].tags) ? services[key].violations[resId].tags.length || services[key].violations[resId].tags : 0,
+                        category: rowData.category,
+                        description: rowData.description,
+                        fix: rowData.suggested_action,
+                        resId: resId,
+                        service: key,
+                        region: rowData.region
+                    };
+                    if(!alertData.level.hasOwnProperty(alert.level)) {
+                        alertData.level[alert.level] = 0;
+                    }
+                    if(!alertData.category.hasOwnProperty(alert.category)) {
+                        alertData.category[alert.category] = 0;
+                    }
+                    if(!alertData.region.hasOwnProperty(alert.region)) {
+                        alertData.region[alert.region] = 0;
+                    }
+
+                    ++alertData.level[alert.level];
+                    ++alertData.category[alert.category];
+                    ++alertData.region[alert.region];
+
+                    alerts.push(alert);
+                });
+            });
+        });
+    }
+
+    function init(data, svg){
+        fillData(data.services, svg);
+        $('#backdrop').hide();
+    }
+
     d3.json("./tmp-data/tmp.json", function(data) {
         if(data) {
             d3.json("./tmp-data/world-countries.json", function(collection) {
-                var svg = drawMap(collection);
-                init(data, svg);
+                svg = drawMap(collection);
+                init(data);
+                fillList('level');
             });
         }
     });
@@ -403,11 +421,9 @@ $(function() {
 
     $('#sort-by-select li').click(function () {
         $('#sort-value').html($(this).html());
-        var value = $(this).attr('value');
-
-        $('.object').addClass('hidden');
-        $('.' + value).removeClass('hidden');
         $('#sort-by-select').addClass('hidden');
+        var value = $(this).attr('value');
+        fillList(value);
     });
 
     $('.button').click( function() {
