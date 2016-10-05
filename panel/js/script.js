@@ -196,7 +196,7 @@ $(function() {
         $('.pie').html('');
 
         var w = 300,
-            h = 300,
+            h = pieData.length * 35 + 10,
             r = 65;
 
         var dataSum = 0;
@@ -204,11 +204,12 @@ $(function() {
             dataSum += +elem.value;
         });
 
+        h = (130 < h) ? h : 130;
 
         var vis = d3.select(".pie")
             .append("svg:svg")
             .data([pieData])
-            .attr("height", h)
+            .attr("viewBox", '0 0 300 ' + h)
             .append("svg:g")
             .attr("transform", "translate(" + r + "," + r + ")");
 
@@ -339,7 +340,7 @@ $(function() {
         });
 
         $('.details-btn').click(function() {
-            var body = $(this).parent().parent().next();
+            var body = $(this).parent().next();
             if(body.hasClass('hidden')) {
                 body.removeClass('hidden');
                 body.slideDown()
@@ -367,7 +368,7 @@ $(function() {
                         title: violationKey,
                         id: violationKey,
                         level: rowData.level,
-                        resources: (services[key].violations[resId].tags) ? services[key].violations[resId].tags.length || services[key].violations[resId].tags : 0,
+                        resources: (services[key].violations[resId].tags) ? services[key].violations[resId].tags.length || 1 : 0,
                         category: rowData.category,
                         description: rowData.description,
                         fix: rowData.suggested_action,
@@ -394,10 +395,58 @@ $(function() {
             });
         });
     }
+    function adjust(mobile){
+        elemsWithClassesToAdd = $('*[layout-xs-add]');
+        elemsWithClassesToRemove = $('*[layout-xs-remove]');
+        var i = 0;
+        if(mobile) {
+            $('.flex-row[layout-xs="flex-column"]').addClass('flex-column').removeClass('flex-row');
+            $('.flex-column[layout-xs="flex-row"]').addClass('flex-row').removeClass('flex-column');
+
+            for(i = 0; i < elemsWithClassesToRemove.length; ++i){
+                var classToRemove = $(elemsWithClassesToRemove[i]).attr('layout-xs-remove');
+                $(elemsWithClassesToRemove[i]).removeClass(classToRemove);
+            }
+
+            for(i = 0; i < elemsWithClassesToAdd.length; ++i){
+                var classToAdd = $(elemsWithClassesToAdd[i]).attr('layout-xs-add');
+                $(elemsWithClassesToAdd[i]).addClass(classToAdd);
+            }
+        } else {
+            $('.flex-column[layout-xs="flex-column"]').addClass('flex-row').removeClass('flex-column');
+            $('.flex-row[layout-xs="flex-row"]').addClass('flex-column').removeClass('flex-row');
+
+            for(i = 0; i < elemsWithClassesToRemove.length; ++i){
+                var classToAdd = $(elemsWithClassesToRemove[i]).attr('layout-xs-remove');
+                $(elemsWithClassesToRemove[i]).addClass(classToAdd);
+            }
+
+            for(i = 0; i < elemsWithClassesToAdd.length; ++i){
+                var classToRemove = $(elemsWithClassesToAdd[i]).attr('layout-xs-add');
+                $(elemsWithClassesToAdd[i]).removeClass(classToRemove);
+            }
+        }
+    }
 
     function init(data, svg){
         fillData(data.services, svg);
         $('#backdrop').hide();
+
+        // var screenWidth = window.innerWidth;
+        // if(screenWidth <= 600){
+        //     adjust(true);
+        // }
+        //
+        // window.onresize = function() {
+        //     if(screenWidth <= 600 && window.innerWidth > 600){
+        //         adjust(false);
+        //         screenWidth = window.innerWidth;
+        //     }
+        //     if(screenWidth > 600 && window.innerWidth <= 600){
+        //         adjust(true);
+        //         screenWidth = window.innerWidth;
+        //     }
+        // };
     }
 
     d3.json("./tmp-data/tmp.json", function(data) {
@@ -432,4 +481,6 @@ $(function() {
         $('.data-block').addClass('hidden');
         $('.'+$(this).attr("type")).removeClass('hidden');
     });
+
+
 });
