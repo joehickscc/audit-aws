@@ -40,6 +40,12 @@ html, body {
     line-height: inherit;
     align-self: center;
 }
+
+.fa-medium {
+    width: 16px;
+    height: 16px;
+}
+
 .fa-caret-down {
     background: url('../images/caret-down.svg');
 }
@@ -243,12 +249,9 @@ html, body {
     border-bottom: 1px solid #E4E4E4;
 }
 
-.dropdown i{
+.dropdown img{
     position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 20px;
-    color: #2B7AE5;
+    right: 0;
     cursor: pointer;
     pointer-events: none;
 }
@@ -263,10 +266,11 @@ html, body {
     margin: 4px 0;
     cursor: pointer;
     text-transform: uppercase;
+    align-items: center;
+    display: flex;
 }
-.button i {
-    margin-right: 4px;
-    font-size: 18px;
+.button img {
+    margin-right: 8px;
 }
 .button.active {
     border-radius: 3px;
@@ -318,9 +322,10 @@ html, body {
     word-wrap: break-word;
 }
 
-.content-data {
-    background: #ffffff;
+.content-data{
+    padding-top: 20px;
 }
+
 @media (max-width: 600px) {
     .left-column {
         width:100%;
@@ -344,5 +349,9 @@ html, body {
     }
     .row-header {
         flex-direction: column;
+    }
+
+    .list > div {
+        background: none;
     }
 }

@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     var alerts = [],
         alertData = {
             level: {},
@@ -266,6 +266,8 @@ $(function() {
             .on("click", onclick);
     }
 
+
+
     function fillList(id) {
         var headerTmpl = $.templates("#list-header-tmpl"),
             tmpl = $.templates("#row-tmpl"),
@@ -273,48 +275,66 @@ $(function() {
             color = d3.scaleOrdinal(d3.schemeCategory20),
             i = 0;
 
-        var listData = alertData[id];
-
+        $('.list').html('');
         var data = [],
             mapData = {};
-
-        var compareFunction = function(key, alert) {
-            return key === alert[id];
-        };
 
         var regionCodes = Object.keys(alertData.region);
         for (i = 0; i < regionCodes.length; ++i) {
             mapData[regionCodes[i]] = {};
         }
 
-        $('.list').html('');
-        Object.keys(listData).forEach( function(key, i) {
-            var headerData = {
-                name: key,
-                resultsCount: listData[key]
-            };
-            var currentColor = color(i);
-            data.push({label: headerData.name, value: headerData.resultsCount, color: currentColor});
+        var keys = Object.keys(alertData[id]);
 
+        var listOfAlerts = {};
+        alerts.forEach(function(alert) {
+            var key = alert[id];
+            if(!listOfAlerts[key]){
+                listOfAlerts[key] = {};
+                listOfAlerts[key].alerts = {};
+                listOfAlerts[key].color = color(keys.indexOf(key));
+            }
+
+            if(!listOfAlerts[key].alerts[alert.id]) {
+                listOfAlerts[key].alerts[alert.id] = alert;
+                listOfAlerts[key].alerts[alert.id].resources = [];
+            }
+            listOfAlerts[key].alerts[alert.id].resources.push({ resource: alert.resource, tags: alert.tags });
+
+            if (!mapData[alert.region][key]) {
+                mapData[alert.region][key] = {value: 0, color: listOfAlerts[key].color};
+            }
+            ++mapData[alert.region][key].value;
+        });
+
+        var visibleCount;
+        var visibleList;
+        var restList;
+
+        Object.keys(listOfAlerts).forEach( function(key) {
+            var currentColor = listOfAlerts[key].color;
+            var headerData = { name: key, resultsCount: alertData[id][key] };
             var header = headerTmpl.render(headerData);
 
-            var visibleList = '';
-            var restList = '';
-            var visibleCount = 0;
-            for (i = 0; i < alerts.length; ++i) {
-                if (compareFunction(key, alerts[i])) {
-                    if (visibleCount < 5) visibleList += tmpl.render(alerts[i]);
-                    else restList += tmpl.render(alerts[i]);
-                    visibleCount++;
-                    if (!mapData[alerts[i].region][key]){
-                        mapData[alerts[i].region][key] = {value: 0, color: currentColor};
-                    }
-                    ++mapData[alerts[i].region][key].value;
-                }
-            }
-            var html =  '<div class="'+key+'">' +
+            data.push({label: headerData.name, value: headerData.resultsCount, color: currentColor});
+
+            visibleList = '';
+            restList = '';
+            visibleCount = 0;
+
+            var groupedAlerts = listOfAlerts[key];
+
+            Object.keys(groupedAlerts.alerts).forEach( function(alertId) {
+                var rendered = tmpl.render(groupedAlerts.alerts[alertId]);
+
+                if (visibleCount < 5) visibleList += rendered;
+                else restList += rendered;
+                visibleCount++;
+            });
+
+            var html =  '<div class="'+key+' bg-white layout-padding" style="margin-bottom: 20px;">' +
                             header +
-                            '<div style="margin-bottom: 20px; border-color: '+currentColor+'">'+
+                            '<div style="border-color: '+currentColor+'">'+
                                 visibleList+
                                 '<div class="hidden" style="border-color: inherit;">'+restList+'</div>' +
                                 ((visibleCount > 5) ? btn: '') +
@@ -368,14 +388,15 @@ $(function() {
                         title: violationKey,
                         id: violationKey,
                         level: rowData.level,
-                        resources: (services[key].violations[resId].tags) ? services[key].violations[resId].tags.length || 1 : 0,
+                        tags: services[key].violations[resId].tags,
                         category: rowData.category,
                         description: rowData.description,
                         fix: rowData.suggested_action,
-                        resId: resId,
+                        resource: resId,
                         service: key,
                         region: rowData.region
                     };
+
                     if(!alertData.level.hasOwnProperty(alert.level)) {
                         alertData.level[alert.level] = 0;
                     }
@@ -476,10 +497,16 @@ $(function() {
     });
 
     $('.button').click( function() {
+        var type = $(this).attr("type");
+        var prevType = $('.active').attr('type');
+        $('.active').find('img').attr('src', './images/'+prevType+'.svg');
+
         $('.active').removeClass('active');
         $(this).addClass('active');
         $('.data-block').addClass('hidden');
-        $('.'+$(this).attr("type")).removeClass('hidden');
+        $('.'+type).removeClass('hidden');
+
+        $('img', this).attr('src', './images/'+type+'-active.svg');
     });
 
 
