@@ -347,6 +347,15 @@ $(function () {
         drawCirclesOnMap(svg, mapData);
         drawMapHistory(mapData);
 
+        $('.resources-link').click(function() {
+            redirectToAuditResources($(this).attr('violation'), $('#sort-value').html());
+        });
+        $('.more-info-link').click(function() {
+
+        });
+        $('.share-link').click(function() {
+
+        });
 
         $('.show-all').click(function () {
             var list = $(this).prev();
@@ -416,58 +425,10 @@ $(function () {
             });
         });
     }
-    function adjust(mobile){
-        elemsWithClassesToAdd = $('*[layout-xs-add]');
-        elemsWithClassesToRemove = $('*[layout-xs-remove]');
-        var i = 0;
-        if(mobile) {
-            $('.flex-row[layout-xs="flex-column"]').addClass('flex-column').removeClass('flex-row');
-            $('.flex-column[layout-xs="flex-row"]').addClass('flex-row').removeClass('flex-column');
-
-            for(i = 0; i < elemsWithClassesToRemove.length; ++i){
-                var classToRemove = $(elemsWithClassesToRemove[i]).attr('layout-xs-remove');
-                $(elemsWithClassesToRemove[i]).removeClass(classToRemove);
-            }
-
-            for(i = 0; i < elemsWithClassesToAdd.length; ++i){
-                var classToAdd = $(elemsWithClassesToAdd[i]).attr('layout-xs-add');
-                $(elemsWithClassesToAdd[i]).addClass(classToAdd);
-            }
-        } else {
-            $('.flex-column[layout-xs="flex-column"]').addClass('flex-row').removeClass('flex-column');
-            $('.flex-row[layout-xs="flex-row"]').addClass('flex-column').removeClass('flex-row');
-
-            for(i = 0; i < elemsWithClassesToRemove.length; ++i){
-                var classToAdd = $(elemsWithClassesToRemove[i]).attr('layout-xs-remove');
-                $(elemsWithClassesToRemove[i]).addClass(classToAdd);
-            }
-
-            for(i = 0; i < elemsWithClassesToAdd.length; ++i){
-                var classToRemove = $(elemsWithClassesToAdd[i]).attr('layout-xs-add');
-                $(elemsWithClassesToAdd[i]).removeClass(classToRemove);
-            }
-        }
-    }
-
+    
     function init(data, svg){
         fillData(data.services, svg);
         $('#backdrop').hide();
-
-        // var screenWidth = window.innerWidth;
-        // if(screenWidth <= 600){
-        //     adjust(true);
-        // }
-        //
-        // window.onresize = function() {
-        //     if(screenWidth <= 600 && window.innerWidth > 600){
-        //         adjust(false);
-        //         screenWidth = window.innerWidth;
-        //     }
-        //     if(screenWidth > 600 && window.innerWidth <= 600){
-        //         adjust(true);
-        //         screenWidth = window.innerWidth;
-        //     }
-        // };
     }
 
     d3.json("./tmp-data/tmp.json", function(data) {
