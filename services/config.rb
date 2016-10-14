@@ -110,3 +110,97 @@ coreo_uni_util_notify "advise-aws" do
               :to => '${AUDIT_AWS_ALERT_RECIPIENT}', :subject => 'CloudCoreo advisor alerts on INSTANCE::stack_name :: INSTANCE::name'
             })
 end
+
+coreo_uni_util_jsrunner "tags-to-notifiers-array" do
+  action :run
+  json_input '"ec2": {
+   "ec2_checks":"STACK::coreo_aws_advisor_ec2.advise-ec2.number_checks",
+   "ec2_violations":"STACK::coreo_aws_advisor_ec2.advise-ec2.number_violations", 
+   "ec2_violations_ignored":"STACK::coreo_aws_advisor_ec2.advise-ec2.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_ec2.advise-ec2.report },
+  "elb": {
+    "elb_checks":"STACK::coreo_aws_advisor_elb.advise-elb.number_checks",
+   "elb_violations":"STACK::coreo_aws_advisor_elb.advise-elb.number_violations", 
+   "elb_violations_ignored":"STACK::coreo_aws_advisor_elb.advise-elb.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_elb.advise-elb.report },
+  "iam": {
+    "iam_checks":"STACK::coreo_aws_advisor_iam.advise-iam.number_checks",
+   "iam_violations":"STACK::coreo_aws_advisor_iam.advise-iam.number_violations", 
+   "iam_violations_ignored":"STACK::coreo_aws_advisor_iam.advise-iam.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_iam.advise-iam.report },
+  "rds": {
+    "rds_checks":"STACK::coreo_aws_advisor_rds.advise-rds.number_checks",
+   "rds_violations":"STACK::coreo_aws_advisor_rds.advise-rds.number_violations", 
+   "rds_violations_ignored":"STACK::coreo_aws_advisor_rds.advise-rds.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_rds.advise-rds.report },
+  "redshift": {
+    "redshift_checks":"STACK::coreo_aws_advisor_redshift.advise-redshift.number_checks",
+   "redshift_violations":"STACK::coreo_aws_advisor_redshift.advise-redshift.number_violations", 
+   "redshift_violations_ignored":"STACK::coreo_aws_advisor_redshift.advise-redshift.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_redshift.advise-redshift.report },
+  "s3": {
+    "s3_checks":"STACK::coreo_aws_advisor_s3.advise-s3.number_checks",
+   "s3_violations":"STACK::coreo_aws_advisor_s3.advise-s3.number_violations", 
+   "s3_violations_ignored":"STACK::coreo_aws_advisor_s3.advise-s3.number_ignored_violations",
+   "violations": STACK::coreo_aws_advisor_s3.advise-s3.report }'
+  function <<-EOH
+console.log('we are running');
+payloads = {};
+notifiers = [];
+violations=json_input['violations'];
+for (instance_id in violations) {
+  tags = violations[instance_id]['tags'];
+  for (var i = 0; i < tags.length; i++) {
+    if (tags[i]['key'] === 'bv:nexus:team') {
+      var aalert = {};
+      aalert[instance_id] = violations[instance_id];
+      tagVal = tags[i]['value'];
+      if (!payloads.hasOwnProperty(tagVal)) {
+        payloads[tagVal] = [];
+      }
+      payloads[tagVal].push(aalert);
+    }
+  }
+}
+for (email in payloads) {
+  var endpoint = {};
+  endpoint['to'] = email;
+  var notifier = {};
+  notifier['type'] = 'email';
+  notifier['send_on'] = 'always';
+  notifier['allow_empty'] = 'true';
+  notifier['payload_type'] = 'json';
+  notifier['endpoint'] = endpoint;
+  notifier['payload'] = {};
+  notifier['payload']['stack name'] = json_input['stack name'];
+  notifier['payload']['instance name'] = json_input['instance name'];
+  notifier['payload']['violations'] = payloads[email];
+  notifiers.push(notifier);
+}
+callback(notifiers);
+EOH
+end
+
+# we are still notifying the entire report to the configured recipient
+# in the extends/services/config.rb: coreo_uni_util_notify "advise-rds"
+coreo_uni_util_notify "advise-rds-to-tag-values" do
+  action :notify
+  notifiers 'STACK::coreo_uni_util_jsrunner.tags-to-notifiers-array.return'
+end
+
+coreo_uni_util_jsrunner "tags-rollup" do
+  action :run
+  json_input 'STACK::coreo_uni_util_jsrunner.tags-to-notifiers-array.return'
+  function <<-EOH
+var rollup = [];
+for (var entry=0; entry < json_input.length; entry++) {
+  console.log(json_input[entry]);
+  if (json_input[entry]['endpoint']['to'].length) {
+    console.log('got an email to rollup');
+    nViolations = json_input[entry]['payload']['violations'].length;
+    rollup.push({'recipient': json_input[entry]['endpoint']['to'], 'nViolations': nViolations});
+  }
+}
+callback(rollup);
+EOH
+end
