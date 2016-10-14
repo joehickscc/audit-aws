@@ -15,17 +15,17 @@ coreo_aws_advisor_cloudtrail "advise-cloudtrail" do
   action :nothing
 end
 
-coreo_aws_advisor_ec2 "advise-ec2" do
-  action :nothing
-end
+## coreo_aws_advisor_ec2 "advise-ec2" do
+##  action :nothing
+## end
 
-coreo_aws_advisor_elb "advise-elb" do
-  action :nothing
-end
+## coreo_aws_advisor_elb "advise-elb" do
+##  action :nothing
+## end
 
-coreo_aws_advisor_iam "advise-iam" do
-  action :nothing
-end
+##coreo_aws_advisor_iam "advise-iam" do
+##  action :nothing
+## end
 
 ## coreo_aws_advisor_rds "advise-rds" do
 ##  action :nothing
@@ -43,17 +43,17 @@ end
 ## action :nothing
 ## end
 
-## coreo_uni_util_notify "advise-ec2" do
-##  action :nothing
-## end
+coreo_uni_util_notify "advise-ec2" do
+ action :nothing
+end
 
-## coreo_uni_util_notify "advise-elb" do
-##  action :nothing
-## end
+coreo_uni_util_notify "advise-elb" do
+  action :nothing
+end
 
-## coreo_uni_util_notify "advise-iam" do
-##  action :nothing
-## end
+coreo_uni_util_notify "advise-iam" do
+  action :nothing
+end
 
 coreo_uni_util_notify "advise-rds" do
   action :nothing
@@ -74,11 +74,6 @@ coreo_uni_util_notify "advise-aws" do
   send_on "${AUDIT_AWS_SEND_ON}"
   payload '
   {"stack name":"INSTANCE::stack_name","instance name":"INSTANCE::name", "services": {
-  "cloudtrail": {
-   "cloudtrail_checks":"STACK::coreo_aws_advisor_cloudtrail.advise-cloudtrail.number_checks",
-   "cloudtrail_violations":"STACK::coreo_aws_advisor_cloudtrail.advise-cloudtrail.number_violations", 
-   "cloudtrail_violations_ignored":"STACK::coreo_aws_advisor_cloudtrail.advise-cloudtrail.number_ignored_violations",
-   "violations": STACK::coreo_aws_advisor_cloudtrail.advise-cloudtrail.report },
   "ec2": {
    "ec2_checks":"STACK::coreo_aws_advisor_ec2.advise-ec2.number_checks",
    "ec2_violations":"STACK::coreo_aws_advisor_ec2.advise-ec2.number_violations", 
