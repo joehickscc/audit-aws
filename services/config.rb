@@ -39,9 +39,9 @@ end
 ##  action :nothing
 ## end
 
-## coreo_uni_util_notify "advise-cloudtrail" do
-## action :nothing
-## end
+coreo_uni_util_notify "advise-cloudtrail" do
+action :nothing
+end
 
 coreo_uni_util_notify "advise-ec2" do
  action :nothing
