@@ -11,6 +11,34 @@
 ## end
 ##
 
+coreo_aws_advisor_cloudtrail "advise-cloudtrail" do
+  action :nothing
+end
+
+coreo_aws_advisor_ec2 "advise-ec2" do
+  action :nothing
+end
+
+coreo_aws_advisor_elb "advise-elb" do
+  action :nothing
+end
+
+coreo_aws_advisor_iam "advise-iam" do
+  action :nothing
+end
+
+## coreo_aws_advisor_rds "advise-rds" do
+##  action :nothing
+## end
+
+coreo_aws_advisor_redshift "advise-redshift" do
+  action :nothing
+end
+
+coreo_aws_advisor_s3 "advise-s3" do
+  action :nothing
+end
+
 coreo_uni_util_notify "advise-cloudtrail" do
   action :nothing
 end
